@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import UserStore from '../../Store/UserStore';
 import {observer} from 'mobx-react';
 
 class AllRanks extends Component {
@@ -15,10 +14,10 @@ class AllRanks extends Component {
 
     async componentDidMount() {
         const username = this.props.username;
-        const token = 'Bearer ' + UserStore.token;
+        const token = this.props.token;
         try {
 
-            let res = await fetch('http://localhost:8080/api/ranks/' + username, {
+            let res = await fetch('https://gtn-api.herokuapp.com/api/ranks/' + username, {
                 method: 'get',
                 headers: {
                     'token': token

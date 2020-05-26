@@ -2,13 +2,12 @@ import {extendObservable, set} from 'mobx';
 
 class UserStore {
     constructor() {
-        console.log(sessionStorage.getItem("USERNAME"))
         extendObservable(this, {
 
             loading: true,
             username: sessionStorage.getItem("USERNAME"),
-            token: ''
-
+            token: sessionStorage.getItem("TOKEN"),
+            activeGame: sessionStorage.getItem("ACTIVEGAME")
         })
         
     }

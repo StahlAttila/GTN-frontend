@@ -49,7 +49,7 @@ class RegisterForm extends React.Component {
 
         try {
             
-            let res = await fetch('http://localhost:8080/sign-up', {
+            let res = await fetch('https://gtn-api.herokuapp.com/sign-up', {
                 method: 'post',
                 headers: {
                     'Accept': 'application/json',

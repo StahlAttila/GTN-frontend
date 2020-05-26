@@ -14,7 +14,7 @@ class Rank extends Component {
 
         try {
             
-            let res = await fetch('http://localhost:8080/leaderboard/' + dif, {
+            let res = await fetch('https://gtn-api.herokuapp.com/leaderboard/' + dif, {
                 method: 'post',
                 headers: {
                     'token': UserStore.token

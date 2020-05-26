@@ -2,7 +2,6 @@ import React from 'react';
 import InputField from '../InputField'
 import SubmitButton from '../SubmitButton';
 import UserStore from '../../Store/UserStore';
-import { useHistory } from "react-router-dom";
 
 class LoginForm extends React.Component {
 
@@ -47,7 +46,7 @@ class LoginForm extends React.Component {
 
         try {
             
-            let res = await fetch('http://localhost:8080/sign-in', {
+            let res = await fetch('https://gtn-api.herokuapp.com/sign-in', {
                 method: 'post',
                 headers: {
                     'Accept': 'application/json',
@@ -63,8 +62,9 @@ class LoginForm extends React.Component {
             console.log(result)
             if(result && !result.status) {
                 sessionStorage.setItem("USERNAME", result.username)
+                sessionStorage.setItem("TOKEN", "Bearer " + result.jwt)
                 UserStore.username = sessionStorage.getItem("USERNAME");
-                UserStore.token = result.jwt;
+                UserStore.token = sessionStorage.getItem("TOKEN");
                 UserStore.loading = false;
                 this.props.history.push("/")
                 
