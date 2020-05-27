@@ -5,8 +5,11 @@ import UserStore from '../../Store/UserStore';
 class RankedGame extends Component {
 
     async createRankedGame(diff) {
+
+        const url = process.env.REACT_APP_API_URL;
+
         try {
-            let res = await fetch('https://gtn-api.herokuapp.com/api/game/new', {
+            let res = await fetch(url + '/api/game/new', {
                 method: 'post',
                 headers: {
                     'Accept': 'application/json',

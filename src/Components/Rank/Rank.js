@@ -11,10 +11,11 @@ class Rank extends Component {
 
     componentDidMount() {
         const dif = this.props.difficulty;
+        const url = process.env.REACT_APP_API_URL;
 
         try {
             
-            let res = await fetch('https://gtn-api.herokuapp.com/leaderboard/' + dif, {
+            let res = await fetch(url + '/leaderboard/' + dif, {
                 method: 'post',
                 headers: {
                     'token': UserStore.token

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import UserStore from '../../Store/UserStore';
 
 class LeaderBoard extends Component {
-
+    
     constructor(props) {
         super(props)
         this.state = {
@@ -12,8 +12,11 @@ class LeaderBoard extends Component {
     }
 
     async componentDidMount() {
+
+        const url = process.env.REACT_APP_API_URL;
+
         try {
-            let res = await fetch('https://gtn-api.herokuapp.com/api/leaderboard/easy', {
+            let res = await fetch(url + '/api/leaderboard/easy', {
                 method: 'get',
                 headers: {
                     'token' : UserStore.token
@@ -38,8 +41,11 @@ class LeaderBoard extends Component {
     }
 
     async changeType(difficulty) {
+
+        const url = process.env.REACT_APP_API_URL;
+
         try {
-            let res = await fetch('https://gtn-api.herokuapp.com/api/leaderboard/' + difficulty, {
+            let res = await fetch(url + '/api/leaderboard/' + difficulty, {
                 method: 'get',
                 headers: {
                     'token' : UserStore.token

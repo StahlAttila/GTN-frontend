@@ -46,7 +46,9 @@ class LoginForm extends React.Component {
 
         try {
             
-            let res = await fetch('https://gtn-api.herokuapp.com/sign-in', {
+            const url = process.env.REACT_APP_API_URL;
+
+            let res = await fetch(url + '/sign-in', {
                 method: 'post',
                 headers: {
                     'Accept': 'application/json',

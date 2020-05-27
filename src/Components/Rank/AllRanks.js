@@ -15,9 +15,10 @@ class AllRanks extends Component {
     async componentDidMount() {
         const username = this.props.username;
         const token = this.props.token;
+        const url = process.env.REACT_APP_API_URL;
         try {
 
-            let res = await fetch('https://gtn-api.herokuapp.com/api/ranks/' + username, {
+            let res = await fetch(url + '/api/ranks/' + username, {
                 method: 'get',
                 headers: {
                     'token': token

@@ -37,9 +37,12 @@ class Game extends Component {
     }
 
     async sendGuess() {
+
+        const url = process.env.REACT_APP_API_URL
+
         try {
             
-            let res = await fetch('https://gtn-api.herokuapp.com/api/game/guess', {
+            let res = await fetch(url + '/api/game/guess', {
                 method: 'post',
                 headers: {
                     'Accept': 'application/json',
