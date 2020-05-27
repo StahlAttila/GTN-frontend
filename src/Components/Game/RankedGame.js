@@ -23,7 +23,6 @@ class RankedGame extends Component {
             });
 
             let result = await res.json();
-            console.log(result)
             if(result && !result.status) {
                 sessionStorage.setItem("ACTIVEGAME", JSON.stringify(result))
                 this.props.history.push("/game/ranked")

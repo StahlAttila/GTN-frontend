@@ -56,14 +56,13 @@ class Game extends Component {
             });
 
             let result = await res.json();
-            console.log(result)
             if(result && !result.status) {
                 UserStore.activeGame = result
                 UserStore.loading = false;
                 this.setState({
-                    guessDirection: result.guessDirection,
                     lives: result.lives,
-                    gameStatus: result.gameStatus
+                    gameStatus: result.gameStatus,
+                    guessDirection: result.guessDirection
                 })
 
                 if( result.gameStatus != null) {
@@ -91,7 +90,57 @@ class Game extends Component {
             this.props.history.push('/create-casual-game')
         }     
     }
-    
+
+    getNumberRange(difficulty) {
+        if(difficulty === 'EASY') {
+            return "0 - 20";
+        } else if (difficulty === 'MEDIUM') {
+            return "0 - 100";
+        } else {
+            return "0 - 500";
+        }
+    }
+
+    async createNewGame() {
+        const url = process.env.REACT_APP_API_URL;
+
+        try {
+            let res = await fetch(url + '/api/game/new', {
+                method: 'post',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'token': UserStore.token
+                },
+                body: JSON.stringify({
+                    gameType: this.state.gameType,
+                    difficulty: this.state.difficulty
+                })
+            });
+
+            let result = await res.json();
+            if(result && !result.status) {
+                sessionStorage.setItem("ACTIVEGAME", JSON.stringify(result))
+                this.setState({
+                    id: result.id,
+                    lives: result.lives,
+                    gameStatus: result.gameStatus,
+                    guessDirection: result.guessDirection,
+                    buttonDisabled: false
+                })
+
+                if( result.gameStatus != null) {
+                    this.setState({
+                        buttonDisabled: true
+                    })
+                }
+            }
+                
+        }
+        catch(e) {
+            console.log(e);
+        }
+    } 
     
     render() {
         return (
@@ -99,6 +148,7 @@ class Game extends Component {
                 <button onClick={() => this.goback()}>Back</button>
                 <p>ID: {this.state.id}</p>
                 <p>Difficulty: {this.state.difficulty}</p>
+                <p>Range: {this.getNumberRange(this.state.difficulty)}</p>
                 <p>{this.state.guessDirection}</p>
                 <p>Lives: {this.state.lives}</p>
                 <p>{this.state.gameStatus}</p>
@@ -109,6 +159,7 @@ class Game extends Component {
                         placeholder="Guess a number"
                         value={this.state.guess ? this.state.guess : ""}
                         onChange={(val) => this.setInputValue('guess', val)}
+                        onFocus={() => this.setState({guess: ""})}
                     />
                     <button
                         disabled={this.state.buttonDisabled} 

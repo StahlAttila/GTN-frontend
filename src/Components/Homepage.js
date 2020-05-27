@@ -23,10 +23,20 @@ class Homepage extends Component {
                     username={UserStore.username} 
                     token={UserStore.token}
                 />
-                <Link to="/leaderboard">Leader Board</Link>
-                <Link to="/create-ranked-game">Create Ranked Game</Link>
-                <Link to="/create-casual-game">Create Casual Game</Link>
-                <Link to="/create-custom-game">Create Custom Game</Link>
+                <div>
+                    <div>
+                        <Link to="/leaderboard">Leader Board</Link>
+                    </div>
+                    <div>
+                        <Link to="/create-ranked-game">Ranked Game</Link>
+                    </div>
+                    <div>
+                        <Link to="/create-casual-game">Casual Game</Link>
+                    </div>
+                    <div>
+                        <Link to="/create-custom-game">Custom Game</Link>
+                    </div>      
+                </div>               
             </div>
         )
     }

@@ -24,7 +24,6 @@ class LeaderBoard extends Component {
             });
 
             let result = await res.json();
-            console.log(result)
             if(result && !result.status) {   
                 this.setState({
                     difficulty: "easy",
