@@ -6,7 +6,7 @@ class InputField extends React.Component {
         return (
             <div className="inputField">
                 <input
-                    className="input"
+                    className={this.props.className}
                     type={this.props.type}
                     placeholder={this.props.placeholder}
                     value={this.props.value}

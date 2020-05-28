@@ -1,6 +1,6 @@
 import React from 'react';
 import {observer} from 'mobx-react';
-import './App.css';
+import './styles/App.css';
 import Login from './Components/Login/Login.js';
 import Register from './Components/Register/Register.js';
 import {BrowserRouter as Router, Route, Switch } from "react-router-dom";

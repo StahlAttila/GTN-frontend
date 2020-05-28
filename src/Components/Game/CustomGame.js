@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import CreateGame from './CreateGame';
-import UserStore from '../../Store/UserStore';
 
 class CasualGame extends Component {
 
@@ -11,13 +9,12 @@ class CasualGame extends Component {
     render() {
         return (
             <div>
-                <div>
-                    
-                    <button onClick={() => this.goBack()}>
+                <div className="gameContainer">
+                    <h2> COMING... at sime time in the far far future</h2>
+                    <button className="submitButton" onClick={() => this.goBack()}>
                         Go Home
                     </button>
-                </div>
-                COMING SOON
+                </div> 
             </div>
         )
     }

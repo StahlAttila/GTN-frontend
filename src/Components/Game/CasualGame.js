@@ -44,31 +44,33 @@ class CasualGame extends Component {
 
     render() {
         return (
-            <div>
+            <div className="gameContainer">
                 <div>
                     <h2>Choose difficulty</h2>
-                    <button onClick={() => this.goBack()}>
-                        Go Home
+                    <button className="backButton" onClick={() => this.goBack()}>
+                        Back
                     </button>
                 </div>
-               <CreateGame 
-                className="easyGame"
-                type="casual"
-                text="Easy Game"
-                onClick={() => this.createCasualGame("easy")}
-               />
-               <CreateGame
-                className="easyGame" 
-                type="casual"
-                text="Medium Game"
-                onClick={() => this.createCasualGame("medium")}
-               />
-               <CreateGame 
-                className="easyGame"
-                type="casual"
-                text="Hard Game"
-                onClick={() => this.createCasualGame("hard")}
-               />
+                <div className="buttonContainer">
+                    <CreateGame 
+                    className="homeLink"
+                    type="casual"
+                    text="Easy Game"
+                    onClick={() => this.createCasualGame("easy")}
+                />
+                <CreateGame
+                    className="homeLink" 
+                    type="casual"
+                    text="Medium Game"
+                    onClick={() => this.createCasualGame("medium")}
+                />
+                <CreateGame 
+                    className="homeLink"
+                    type="casual"
+                    text="Hard Game"
+                    onClick={() => this.createCasualGame("hard")}
+                />
+                </div> 
             </div>
         )
     }

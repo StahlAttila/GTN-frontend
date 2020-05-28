@@ -8,7 +8,6 @@ class Register extends React.Component {
         return (
             <div className="loginContainer">
                 <RegisterForm {...this.props}/>
-                <Link to="/login">Already have an account?</Link>
             </div>
         )
     }

@@ -43,7 +43,7 @@ class AllRanks extends Component {
 
     render() {
         return (
-            <div>
+            <div className={this.props.className}>
                 <p>Easy: {this.state.rankedEasy}</p>
                 <p>Medium: {this.state.rankedMedium}</p>
                 <p>Hard: {this.state.rankedHard}</p>

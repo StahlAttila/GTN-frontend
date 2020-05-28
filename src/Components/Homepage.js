@@ -14,27 +14,30 @@ class Homepage extends Component {
 
     render() {
         return (
-            <div>
-                <button onClick={() => this.doLogout()}>Logout</button>
-                <h1>Welcome,</h1>
+            <div className="homeContainer">
+                <button className="submitButton logoutButton" onClick={() => this.doLogout()}>Logout</button>
+                <h1>Hey there,</h1>
                 <h2>{UserStore.username}</h2>
-                <h3>Current Ranks:</h3>
-                <AllRanks
-                    username={UserStore.username} 
-                    token={UserStore.token}
-                />
+                <h3>Your current ranks:</h3>
                 <div>
-                    <div>
-                        <Link to="/leaderboard">Leader Board</Link>
+                    <AllRanks
+                        className="ranks"
+                        username={UserStore.username} 
+                        token={UserStore.token}
+                    />
+                </div>
+                <div className="buttonContainer">
+                    <div className="homeButton">
+                        <Link className="homeLink" to="/leaderboard">Leader Board</Link>
                     </div>
-                    <div>
-                        <Link to="/create-ranked-game">Ranked Game</Link>
+                    <div className="homeButton">
+                        <Link className="homeLink" to="/create-ranked-game">Ranked Game</Link>
                     </div>
-                    <div>
-                        <Link to="/create-casual-game">Casual Game</Link>
+                    <div className="homeButton">
+                        <Link className="homeLink" to="/create-casual-game">Casual Game</Link>
                     </div>
-                    <div>
-                        <Link to="/create-custom-game">Custom Game</Link>
+                    <div className="homeButton">
+                        <Link className="homeLink" to="/create-custom-game">Custom Game</Link>
                     </div>      
                 </div>               
             </div>

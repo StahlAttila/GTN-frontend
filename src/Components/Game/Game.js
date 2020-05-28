@@ -144,17 +144,19 @@ class Game extends Component {
     
     render() {
         return (
-            <div>
-                <button onClick={() => this.goback()}>Back</button>
-                <p>ID: {this.state.id}</p>
-                <p>Difficulty: {this.state.difficulty}</p>
-                <p>Range: {this.getNumberRange(this.state.difficulty)}</p>
-                <p>{this.state.guessDirection}</p>
-                <p>Lives: {this.state.lives}</p>
-                <p>{this.state.gameStatus}</p>
-
+            <div className="gameContainer">
+                <button className="backButton" onClick={() => this.goback()}>Back</button>
+                <div className="gameText">
+                    <p>ID: {this.state.id}</p>
+                    <p>Difficulty: {this.state.difficulty}</p>
+                    <p>Range: {this.getNumberRange(this.state.difficulty)}</p>
+                    <p>{this.state.guessDirection}</p>
+                    <p>Lives: {this.state.lives}</p>
+                    <p className="gameStatus">{this.state.gameStatus}</p>
+                </div>
                 <div>
                     <InputField
+                        className="textInput"
                         type="guess"
                         placeholder="Guess a number"
                         value={this.state.guess ? this.state.guess : ""}
@@ -162,13 +164,15 @@ class Game extends Component {
                         onFocus={() => this.setState({guess: ""})}
                     />
                     <button
+                        className="submitButton"
                         disabled={this.state.buttonDisabled} 
                         onClick={() =>this.sendGuess()}>
                         Guess
                     </button>
                     <button
+                        className="submitButton"
                         onClick={() =>this.createNewGame()}>
-                        Create New
+                        New Game
                     </button>
                 </div>
                 

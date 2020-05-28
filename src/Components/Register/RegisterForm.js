@@ -1,6 +1,7 @@
 import React from 'react';
 import InputField from '../InputField'
 import SubmitButton from '../SubmitButton';
+import {Link} from 'react-router-dom';
 
 class RegisterForm extends React.Component {
 
@@ -83,33 +84,53 @@ class RegisterForm extends React.Component {
 
     render() {
         return (
-            <div className="registerForm">
-                Login Form
-                <InputField 
-                    type="text"
-                    placeholder="Username"
-                    value={this.state.username ? this.state.username : ''}
-                    onChange={(val) => this.setInputValue('username', val)}
-                />
-                <InputField 
-                    type="email"
-                    placeholder="example@example.com"
-                    value={this.state.email ? this.state.email : ''}
-                    onChange={(val) => this.setInputValue('email', val)}
-                    
-                />
-                <InputField 
-                    type="password"
-                    placeholder="Password"
-                    value={this.state.password ? this.state.password : ''}
-                    onChange={(val) => this.setInputValue('password', val)}
-                    
-                />
-                <SubmitButton
-                        text={"Sign up"}
-                        disabled={false}
-                        onClick={() => this.doRegister() }
-                    />
+            <div className="formContainer">
+                <h1>Register</h1>
+                <div className="registerForm">
+                    <div className="usernameInput">
+                        <i className="fa fa-user" aria-hidde="true"></i>
+                        <InputField 
+                            className="textInput"
+                            type="text"
+                            placeholder="Username"
+                            value={this.state.username ? this.state.username : ''}
+                            onChange={(val) => this.setInputValue('username', val)}
+                        />
+                    </div>
+                    <div className="emailInput">
+                        <i className="fa fa-envelope" aria-hidde="true"></i>
+                        <InputField 
+                            className="textInput"
+                            type="email"
+                            placeholder="example@example.com"
+                            value={this.state.email ? this.state.email : ''}
+                            onChange={(val) => this.setInputValue('email', val)}
+                        />
+                    </div>
+                    <div className="passwordInput">
+                        <i className="fa fa-lock" aria-hidde="true"></i>
+                        <InputField
+                            className="textInput" 
+                            type="password"
+                            placeholder="Password"
+                            value={this.state.password ? this.state.password : ''}
+                            onChange={(val) => this.setInputValue('password', val)}
+                            
+                        />
+                    </div>
+                    <div>
+                        <SubmitButton
+                            className="submitButton"
+                            text={"Sign up"}
+                            disabled={false}
+                            onClick={() => this.doRegister() }
+                            />
+                        <div>
+                            <p>Already have an account? <Link className="redirectLink" to="/login">Sign in</Link></p>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         )
     }

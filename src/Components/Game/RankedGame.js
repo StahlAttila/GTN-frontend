@@ -44,31 +44,34 @@ class RankedGame extends Component {
 
     render() {
         return (
-            <div>
+            <div className="gameContainer">
                 <div>
                     <h2>Choose difficulty</h2>
-                    <button onClick={() => this.goBack()}>
-                        Go Home
+                    <button className="backButton" onClick={() => this.goBack()}>
+                        Back
                     </button>
                 </div>
-               <CreateGame 
-                className="easyGame"
-                type="ranked"
-                text="Easy Game"
-                onClick={() => this.createRankedGame("easy")}
-               />
-               <CreateGame
-                className="easyGame" 
-                type="ranked"
-                text="Medium Game"
-                onClick={() => this.createRankedGame("medium")}
-               />
-               <CreateGame 
-                className="easyGame"
-                type="ranked"
-                text="Hard Game"
-                onClick={() => this.createRankedGame("hard")}
-               />
+                <div className="buttonContainer">
+                    <CreateGame 
+                    className="homeLink"
+                    type="ranked"
+                    text="Easy Game"
+                    onClick={() => this.createRankedGame("easy")}
+                />
+                <CreateGame
+                    className="homeLink" 
+                    type="ranked"
+                    text="Medium Game"
+                    onClick={() => this.createRankedGame("medium")}
+                />
+                <CreateGame 
+                    className="homeLink"
+                    type="ranked"
+                    text="Hard Game"
+                    onClick={() => this.createRankedGame("hard")}
+                />
+                </div>
+               
             </div>
         )
     }

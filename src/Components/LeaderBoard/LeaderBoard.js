@@ -88,10 +88,14 @@ class LeaderBoard extends Component {
 
         return (
             <div>
-                <div>
-                    <button onClick={() => this.changeType("easy")}>Easy</button>
-                    <button onClick={() => this.changeType("medium")}>Medium</button>
-                    <button onClick={() => this.changeType("hard")}>Hard</button>
+                <div className="leaderboardContainer">
+                    <h1>Leader Board</h1>
+                    <div className="leaderboardButtons">
+                        <button className="submitButton" onClick={() => this.changeType("easy")}>Easy</button>
+                        <button className="submitButton" onClick={() => this.changeType("medium")}>Medium</button>
+                        <button className="submitButton" onClick={() => this.changeType("hard")}>Hard</button>
+                    </div>
+                    <button className="backButton" onClick={() => this.goBack()}>Back</button>
                     <table>
                         <thead>
                             <tr>
@@ -113,7 +117,6 @@ class LeaderBoard extends Component {
                         </tbody>
                     </table>
                 </div>
-                <button onClick={() => this.goBack()}>Go Home</button>
             </div>
         )
     }
